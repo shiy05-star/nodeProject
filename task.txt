@@ -3,4 +3,4 @@ Get/user -list of user,
 Get/user/1- get the user with id,
 delete/user/1 - delete user with ID,
 
-post,patch,update api
+post,patch,update apizws2
