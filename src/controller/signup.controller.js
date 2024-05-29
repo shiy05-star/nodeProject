@@ -23,12 +23,25 @@ exports.findOne = async (req, res) => {
         message: "User not found",
       });
     }
-    res.status(200).json({
-      success: true,
-      error: false,
-      message: "User fetched successfully",
-      data: results [0][0]
-    });
+
+    if(results [0][0].result =="User does not exist")
+      {
+        res.status(200).json({
+          success: true,
+          error: false,
+          message: results [0][0].result
+        });
+
+      }
+      else
+      {
+        res.status(200).json({
+          success: true,
+          error: false,
+          data: results [0][0]
+        });
+      }
+    
   } catch (err) {
     console.error("Error executing query:", err);
     res.status(500).json({
